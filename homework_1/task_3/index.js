@@ -8,7 +8,7 @@ const hotCold = () => {
   //Stop the program if user press 'Cancel'
   if(userInput === null) {
     return
-}
+  }
   //set user input to variables and explicitly convert them to a numbers
   let max = Number(userInput.split(' ')[1])
   let min = Number(userInput.trim().split(' ')[0])
