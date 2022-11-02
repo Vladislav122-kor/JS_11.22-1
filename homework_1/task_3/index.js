@@ -88,7 +88,9 @@ const hotCold = () => {
 
 
 
-  //To check the task with While Loop please uncomment it form the line below this
+  //To check the task with While Loop please uncomment it 
+  // from the line below this and comment userGuessing() function and
+  // its call (on line 86)
 
   // let keepAsking = true
 
