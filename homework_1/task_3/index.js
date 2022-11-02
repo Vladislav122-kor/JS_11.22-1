@@ -36,7 +36,7 @@ const hotCold = () => {
   //log the numberToGuess into console  - to ease the program testing. Hope, that's won't be a mistake:)
   console.log(numberToGuess)
 
-  //various for previous user conjection and for number of user attempts
+  //variables for previous user conjection and for number of user attempts
   let preveiousConjecture
   let userAttempts = 0
 
