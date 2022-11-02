@@ -1,7 +1,7 @@
 const result = () => {
 
   // Get the data from user input
-  let userInput = prompt('Please type the character(or number) and the quantity of colums and rows')
+  let userInput = prompt('Please type the character (or number) and the quantity of colums and rows separated by a space')
   
   //Stop the program if user press 'Cancel'
   if(userInput === null) {
@@ -28,9 +28,16 @@ const result = () => {
     }
 
 
-  //Creating the output string from Array-like object with length equal to the length provided by user. Then populate it with user characters (with map() method provided in Array.from() as a second argument).
+  //Creating the output string from Array-like object 
+  //with length equal to the length provided by user. 
+  //Then populate it with user characters (with map() 
+  //method provided in Array.from() as a second argument).
   
-  //Each array is a table row, the number of items in array is a number of rows that we need. So we provide the Array.prototype.forEach() method, and on each item we concatenate string with user characters to outputTable variable and add \n to make the line break.
+  //Each array is a table row, the number of items in array 
+  //is a number of rows that we need. 
+  //So I provide the Array.prototype.forEach() method, 
+  //and on each item we concatenate string with user characters 
+  //to outputTable variable and add \n to make the line break.
 
   let outputTable = ''
 

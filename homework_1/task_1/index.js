@@ -1,7 +1,7 @@
 const result = () => {
 
   // get two numbers from user
-  let userInput = prompt('Please type two numbers')   
+  let userInput = prompt('Please type two numbers separated by a space')   
 
   //Stop the program if user press 'Cancel'
   if(userInput === null) {
