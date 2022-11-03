@@ -46,44 +46,44 @@ const hotCold = () => {
   //- while loop (commented below the userGuessing() function)
   //While loop also works correctly. You can uncomment it and check if it works in the right way
 
-  // function userGuessing () {
-  //   let userConjecture = prompt('Try to guess a number')
+  function userGuessing () {
+    let userConjecture = prompt('Try to guess a number')
     
-  //   //Stop the program if user press 'Cancel'
-  //   if(userConjecture === null) {
-  //     return
-  //   }
+    //Stop the program if user press 'Cancel'
+    if(userConjecture === null) {
+      return
+    }
 
-  //   //Validate user input
-  //   if(isNaN(userConjecture) || userConjecture < 0 || userConjecture === '' ) {
-  //     alert('Please enter a positive number')
-  //     return userGuessing()
-  //   }
+    //Validate user input
+    if(isNaN(userConjecture) || userConjecture < 0 || userConjecture === '' ) {
+      alert('Please enter a positive number')
+      return userGuessing()
+    }
     
-  //   //If everething is ok incrementing an attempts counter
-  //   userAttempts++
+    //If everething is ok incrementing an attempts counter
+    userAttempts++
 
-  //   //ouput if user guessed
-  //   if(userConjecture === numberToGuess) {
-  //     return alert((preveiousConjecture === undefined) ? 
-  //     'Great! It\'s like you knew the number' : `You did it in ${ userAttempts } attempts. Congratulations!`)
-  //   } else {
-  //     //output if user didn't guess the number
-  //     alert(
-  //     (numberToGuess - userConjecture === 1) ? 'You\'re almost there' : 
-  //     (numberToGuess - userConjecture === -1) ? 'You\'re almost there' : 
-  //     (preveiousConjecture === undefined) ? 'cold' : 
-  //     Math.abs(numberToGuess - userConjecture) <= Math.abs(numberToGuess - preveiousConjecture) ? 'warmer' : 'colder')
-  //   }
+    //ouput if user guessed
+    if(userConjecture === numberToGuess) {
+      return alert((preveiousConjecture === undefined) ? 
+      'Great! It\'s like you knew the number' : `You did it in ${ userAttempts } attempts. Congratulations!`)
+    } else {
+      //output if user didn't guess the number
+      alert(
+      (numberToGuess - userConjecture === 1) ? 'You\'re almost there' : 
+      (numberToGuess - userConjecture === -1) ? 'You\'re almost there' : 
+      (preveiousConjecture === undefined) ? 'cold' : 
+      Math.abs(numberToGuess - userConjecture) <= Math.abs(numberToGuess - preveiousConjecture) ? 'warmer' : 'colder')
+    }
 
     
-  //   preveiousConjecture = userConjecture
+    preveiousConjecture = userConjecture
 
 
-  //   //call the function recursevly
-  //   userGuessing()
-  // }
-  // userGuessing()
+    //call the function recursevly
+    userGuessing()
+  }
+  userGuessing()
 
 
 
@@ -92,45 +92,45 @@ const hotCold = () => {
   // from the line below this and comment userGuessing() function and
   // its call (on line 86)
 
-  let keepAsking = true
+  // let keepAsking = true
 
-  while(keepAsking) {
-    //same logic as in userGuessing() function, but without ternary operators
+  // while(keepAsking) {
+  //   //same logic as in userGuessing() function, but without ternary operators
    
-    let userConjecture = prompt('Try to guess a number')
+  //   let userConjecture = prompt('Try to guess a number')
 
-    if(isNaN(userConjecture) || userConjecture < 0 || userConjecture === '') {
-      alert('Please enter a positive number')
-      continue
-    }
+  //   if(isNaN(userConjecture) || userConjecture < 0 || userConjecture === '') {
+  //     alert('Please enter a positive number')
+  //     continue
+  //   }
 
-    if(userConjecture === null) {
-      return
-    }
+  //   if(userConjecture === null) {
+  //     return
+  //   }
 
-    userAttempts++
+  //   userAttempts++
     
-    if(userConjecture === numberToGuess && preveiousConjecture === undefined) {
-      keepAsking = false
-      return alert('Great! It\'s like you knew the number')
-    } else if (userConjecture === numberToGuess){
-      keepAsking = false
-      return alert(`You did it in ${ userAttempts } attempts. Congratulations!`)
-    }
+  //   if(userConjecture === numberToGuess && preveiousConjecture === undefined) {
+  //     keepAsking = false
+  //     return alert('Great! It\'s like you knew the number')
+  //   } else if (userConjecture === numberToGuess){
+  //     keepAsking = false
+  //     return alert(`You did it in ${ userAttempts } attempts. Congratulations!`)
+  //   }
 
-    if(numberToGuess - userConjecture === 1 || numberToGuess - userConjecture === -1){
-      alert('You\'re almost there')
-    }else if(preveiousConjecture === undefined) {
-      alert('Cold')
-    } else if(Math.abs(numberToGuess - userConjecture) <= Math.abs(numberToGuess - preveiousConjecture)) {
-      alert('warmer')
-    }
-     else if(Math.abs(numberToGuess - userConjecture) > Math.abs(numberToGuess - preveiousConjecture)) {
-      alert('colder')
-    }
+  //   if(numberToGuess - userConjecture === 1 || numberToGuess - userConjecture === -1){
+  //     alert('You\'re almost there')
+  //   }else if(preveiousConjecture === undefined) {
+  //     alert('Cold')
+  //   } else if(Math.abs(numberToGuess - userConjecture) <= Math.abs(numberToGuess - preveiousConjecture)) {
+  //     alert('warmer')
+  //   }
+  //    else if(Math.abs(numberToGuess - userConjecture) > Math.abs(numberToGuess - preveiousConjecture)) {
+  //     alert('colder')
+  //   }
 
-    preveiousConjecture = userConjecture
-  } 
+  //   preveiousConjecture = userConjecture
+  // } 
 }
 
 
