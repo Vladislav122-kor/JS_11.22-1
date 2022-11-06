@@ -5,6 +5,7 @@ function makeDeepCopy(obj) {
     throw new Error()
 
   }
+
   //function to recursevly copy an object
   function recursionClone(obj) {
     let value
@@ -14,6 +15,24 @@ function makeDeepCopy(obj) {
       return obj 
     } 
 
+    //deep copy if property is Set.
+    //Convert it into Array.
+    //Make deep clone
+    //return new Set 
+    if(obj instanceof Set) {
+      let array = Array.from(obj)
+      let newSet = new Set(recursionClone(array))
+      return newSet
+    }
+    //deep copy if property is Map.
+    //Convert it into Object.
+    //Make deep clone
+    //return new Map 
+    if(obj instanceof Map){
+      let objFromMap = Object.fromEntries(obj)
+      let newMap = new Map(Object.entries(recursionClone(objFromMap)))
+      return newMap
+    }
     // Create an array or object to hold the values
     let newObj = Array.isArray(obj) ? [] : {}
     
@@ -53,6 +72,26 @@ function makeDeepCopy(obj) {
 //       // Return the value if obj is not an object
 //       return obj 
 //     } 
+    
+//     //deep copy if property is Set.
+//     //Convert it into Array.
+//     //Make deep clone
+//     //return new Set 
+//     if(obj instanceof Set) {
+//       let array = Array.from(obj)
+//       let newSet = new Set(recursionClone(array))
+//       return newSet
+//     }
+
+//     //deep copy if property is Map.
+//     //Convert it into Object.
+//     //Make deep clone
+//     //return new Map 
+//     if(obj instanceof Map){
+//       let objFromMap = Object.fromEntries(obj)
+//       let newMap = new Map(Object.entries(recursionClone(objFromMap)))
+//       return newMap
+//     }
 
 //     // Create an array or object to hold the values
 //     let newObj = Array.isArray(obj) ? [] : {}
