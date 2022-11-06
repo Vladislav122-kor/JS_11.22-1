@@ -16,36 +16,5 @@ function makeDeepCopy(obj) {
     newObj[key] = makeDeepCopy(value)
   }
 
-  // //Algorithm that recursevly copying Symbol property names
-  // for(let key of Object.getOwnPropertySymbols(obj)) {
-  //   value = obj[key]
-
-  //   newObj[key] = makeDeepCopy(value)
-  // }
-
   return newObj
 }
-
-
-const obj = {
-  a: 1,
-  b: 2,
-  c: 4,
-  [Symbol('eee')]: 555,
-  l: {
-    ad:34,
-    [Symbol('kkk')] : {
-      kk: 1,
-      ff: 2,
-    },
-    4: 'aaa',
-    1: true
-  },
-  lasd: undefined,
-  trust: true,
-  cast: null
-}
-
-const newObj = makeDeepCopy(obj)
-console.log(obj)
-console.log(newObj)
