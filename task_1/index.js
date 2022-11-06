@@ -1,5 +1,3 @@
-//Task is not finished yet! Need to add operations with Symbols
-
 function makeDeepCopy(obj) {
   let value
   
@@ -12,10 +10,16 @@ function makeDeepCopy(obj) {
   let newObj = Array.isArray(obj) ? [] : {}
 
   for (let key in obj) {
-    console.log(typeof key)
 
     value = obj[key]
     // Recursively (deep) copy for nested objects
+    newObj[key] = makeDeepCopy(value)
+  }
+
+  //Algorithm that recursevly copying Symbol property names
+  for(let key of Object.getOwnPropertySymbols(obj)) {
+    value = obj[key]
+
     newObj[key] = makeDeepCopy(value)
   }
 
