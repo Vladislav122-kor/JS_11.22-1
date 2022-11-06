@@ -5,8 +5,7 @@ function makeDeepCopy(obj) {
   }
   return recursionClone(obj)
 }
-
- //function to recursevly copy an object
+//function to recursevly copy an object
 function recursionClone(obj) {
   let value
 
@@ -30,7 +29,6 @@ function recursionClone(obj) {
   }
   // Create an array or object to hold the values
   const newObj = Array.isArray(obj) ? [] : {}
-
   //use Reflect.ownKeys() static method to iterate over
   //regular property names and Symbol property names
   for (let key of Reflect.ownKeys(obj)) {
@@ -49,6 +47,7 @@ function recursionClone(obj) {
 
 //function to recursevly copy an object (only enumarable property names and Symbols)
 //Please, check if makeDeepCopy() function is not commented (on line 1)
+
 // function recursionClone(obj) {
 //   let value
 
@@ -56,7 +55,6 @@ function recursionClone(obj) {
 //     // Return the value if obj is not an object
 //     return obj
 //   }
-
 //   //Check if property is Set. Convert it into Array.
 //   //Make deep clone and return new Set
 //   if (obj instanceof Set) {
@@ -64,7 +62,6 @@ function recursionClone(obj) {
 //     const newSet = new Set(recursionClone(array))
 //     return newSet
 //   }
-
 //   //Check if property is Map.Convert it into Object.
 //   //Make deep clone and return new Map
 //   if (obj instanceof Map) {
@@ -72,10 +69,8 @@ function recursionClone(obj) {
 //     const newMap = new Map(Object.entries(recursionClone(objFromMap)))
 //     return newMap
 //   }
-
 //   // Create an array or object to hold the values
 //   const newObj = Array.isArray(obj) ? [] : {}
-
 //   //use Reflect.ownKeys() static method to iterate over
 //   //regular property names and Symbol property names
 //   for (let key in obj) {
@@ -83,7 +78,6 @@ function recursionClone(obj) {
 //     // Recursively (deep) copy for nested objects
 //     newObj[key] = recursionClone(value)
 //   }
-
 //   //also cloning a Symbol property names
 //   for (let key of Object.getOwnPropertySymbols(obj)) {
 //     value = obj[key]
