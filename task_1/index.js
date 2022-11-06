@@ -8,7 +8,9 @@ function makeDeepCopy(obj) {
 
   // Create an array or object to hold the values
   let newObj = Array.isArray(obj) ? [] : {}
-
+  
+  //use Reflect.ownKeys() static method to iterate over
+  //regular property names and Symbol property names
   for (let key of Reflect.ownKeys(obj)) {
 
     value = obj[key]
