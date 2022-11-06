@@ -5,7 +5,6 @@ function selectFromInterval(userArray, firstIntParam, secondIntParam) {
   }
   //sorting the interval, to start from the smaller one
   const sortInt = [firstIntParam, secondIntParam].sort((a, b) => a - b)
-
   //filter an array with provided interval
   const finallArray = userArray.filter(
     (item) => item >= sortInt[0] && item <= sortInt[1]
