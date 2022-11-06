@@ -3,7 +3,6 @@ function createIterable(from, to) {
   if (to <= from || !Number.isFinite(to) || !Number.isFinite(from)) {
     throw new Error()
   }
-
   //creating an iterable object
   const iterObj = {
     from,
