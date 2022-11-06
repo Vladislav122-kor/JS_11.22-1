@@ -1,17 +1,17 @@
 function selectFromInterval(userArray, firstIntParam, secondIntParam) {
   //call function to validate the arguments
   if (argsError(userArray, firstIntParam, secondIntParam)) {
-    throw new Error();
+    throw new Error()
   }
   //sorting the interval, to start from the smaller one
-  const sortInt = [firstIntParam, secondIntParam].sort((a, b) => a - b);
+  const sortInt = [firstIntParam, secondIntParam].sort((a, b) => a - b)
 
   //filter an array with provided interval
   const finallArray = userArray.filter(
     (item) => item >= sortInt[0] && item <= sortInt[1]
-  );
+  )
 
-  return finallArray;
+  return finallArray
 }
 
 //function to check if arguments are correct
@@ -27,6 +27,6 @@ function argsError(arr, intOne, intTwo) {
     !Number.isFinite(intOne) ||
     !Number.isFinite(intTwo)
   ) {
-    return true;
+    return true
   }
 }
