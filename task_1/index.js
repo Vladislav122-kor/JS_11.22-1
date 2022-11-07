@@ -8,9 +8,9 @@ function makeDeepCopy(obj) {
 //function to recursevly copy an object
 function recursionClone(obj) {
   let value
-
+    
+  // Return the value if obj is not an object
   if (typeof obj !== 'object' || obj === null) {
-    // Return the value if obj is not an object
     return obj
   }
   //Check if property is Set. Convert it into Array.
@@ -26,6 +26,10 @@ function recursionClone(obj) {
     const objFromMap = Object.fromEntries(obj)
     const newMap = new Map(Object.entries(recursionClone(objFromMap)))
     return newMap
+  }
+  //Check if property is regexp
+  if(obj instanceof RegExp) {
+    return new RegExp(obj)
   }
   // Create an array or object to hold the values
   const newObj = Array.isArray(obj) ? [] : {}
@@ -68,6 +72,10 @@ function recursionClone(obj) {
 //     const objFromMap = Object.fromEntries(obj)
 //     const newMap = new Map(Object.entries(recursionClone(objFromMap)))
 //     return newMap
+//   }
+//   //Check if property is regexp
+//   if(obj instanceof RegExp) {
+//     return new RegExp(obj)
 //   }
 //   // Create an array or object to hold the values
 //   const newObj = Array.isArray(obj) ? [] : {}
