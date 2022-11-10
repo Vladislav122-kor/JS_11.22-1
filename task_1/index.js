@@ -9,7 +9,7 @@ Object.defineProperty(Array.prototype, 'customFilter', {
       typeof callback !== 'function' ||
       thisArg && typeof thisArg !== 'object' ||
       thisArg && Array.isArray(thisArg) ||
-      thisArg && typeof thisArg === 'null'
+      thisArg === null
     ) {
       throw new Error()
     }
