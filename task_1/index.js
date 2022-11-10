@@ -7,9 +7,9 @@ Object.defineProperty(Array.prototype, 'customFilter', {
   value: function (callback, thisArg) {
     if (
       typeof callback !== 'function' ||
-      typeof thisArg !== 'object' ||
-      Array.isArray(thisArg) ||
-      thisArg == null
+      thisArg && typeof thisArg !== 'object' ||
+      thisArg && Array.isArray(thisArg) ||
+      thisArg && typeof thisArg === 'null'
     ) {
       throw new Error()
     }
