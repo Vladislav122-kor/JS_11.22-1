@@ -42,8 +42,3 @@ class RickAndMorty {
     }
   }
 }
-const pers = new RickAndMorty()
-pers.getCharacter(10).then(data => console.log(data))
-
-const ep = new RickAndMorty()
-ep.getEpisode(10).then(data => console.log(data))
