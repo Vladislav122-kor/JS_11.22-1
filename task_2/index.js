@@ -39,6 +39,9 @@ class Calculator {
   }
 
   getDiv() {
+    if(this.arg2 === 0) {
+      throw new Error()
+    }
       return this.arg1 / this.arg2
   }
 }
