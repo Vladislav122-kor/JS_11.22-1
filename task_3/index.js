@@ -31,7 +31,6 @@ class RickAndMorty {
       const fetchedEpisode = await fetch(
         `https://rickandmortyapi.com/api/episode/${episode}`
       )
-    
       if (fetchedEpisode.status === 404) {
         return null
       }
