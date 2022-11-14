@@ -1,7 +1,7 @@
 // I use closure to store and update the newString variable, 
 // and make it accessible to all functions created and called 
 // inside the concatStrings()  function
-let concatStrings = (string, separator) => {
+const concatStrings = (string, separator) => {
   // variable to store our string (during function execution 
   // it will be updated with closure)
   let newString = string
@@ -11,7 +11,7 @@ let concatStrings = (string, separator) => {
   // find the fincal call '()'  and return empty string.
   if (typeof newString !== 'string') {
     return function noFirstArgPass(args) {
-      if (args || args === '' || Number.isNaN(args)) {
+      if (args || args === '' || args === null || Number.isNaN(args)) {
         return noFirstArgPass
       }
       return ''
@@ -29,7 +29,7 @@ let concatStrings = (string, separator) => {
   // And closure begins
   return function getNextArgs(nextString) {
     // If we find final call '()' return our string
-    if (!nextString && nextString !== '' && typeof nextString !== 'number') {
+    if (!nextString && nextString !== '' && nextString !== null && typeof nextString !== 'number') {
       if (separator) {
         // remove last separator
         return newString.slice(0, -separator.length)
@@ -42,7 +42,7 @@ let concatStrings = (string, separator) => {
     // find the fincal call '()' .
     if (typeof nextString !== 'string' ) {
       return function passRemainingArgs(args) {
-        if (args || args === '' || Number.isNaN(args)) {
+        if (args || args === '' || args === null || Number.isNaN(args)) {
           return passRemainingArgs
         }
         if (separator) {
