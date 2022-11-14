@@ -62,16 +62,3 @@ let concatStrings = (string, separator) => {
     return getNextArgs
   } 
 }
-
-
-
-
-console.log( concatStrings('111', '---')('1')('111')('a')('111')('111')('111')('111')('111')('111')('111')('111')('90')('asd')('111')('111')('111')('111')('111')('111')('111')('111')('111')('111')('111')('111')('111')('111')('aaa')(1)('last-string')('')('')()
-)
-console.log(concatStrings('a')('b')('c')(null))
-console.log(concatStrings('a')('b')()
-)
-console.log(concatStrings('a')('b')('c')())
-console.log(concatStrings('a', 'null')('b')('c')())
-console.log(concatStrings('a', null)('b')('c')()
-)
