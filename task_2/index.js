@@ -1,8 +1,8 @@
 // It's interesting, binding objects in constructor
 // 'breaks' class inheritance
-// Now, the class methods not inhereting from class constructor, 
+// Now, the class methods not inhereting from Calculator.prototype, 
 // new methods are creating in every new instance instead! 
-// So, every instance will have its own setX, getMul, etc.
+// So, every new instance will have its own setX, getMul, etc.
 // const calc = new Calculator(1,2)
 // Object.hasOwn(calc, 'setX')    //true
 // Object.hasOwn(calc, 'getSum')  //true
