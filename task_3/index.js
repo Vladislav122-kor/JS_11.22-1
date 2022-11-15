@@ -6,19 +6,20 @@ class RickAndMorty {
     if (!Number.isFinite(id)) {
       throw new Error('Type valid ID')
     }
-    //get pers with then...catch()
+    //get character with then...catch()
     const pers = fetch(`https://rickandmortyapi.com/api/character/${id}`)
     .then((response) => {
       //if no pers with this id - return null
       return response.json()
     })
     .then((data) => {
-      // ! We cannot check if character exists with 'response.status !== '404', 
+      // We shouldn't check if character exists with 'response.status !== '404', 
       // or 'response.ok ==='true', because we possibly can catch
-      //  a lot of other mistakes (e.g wrong url),
+      //  a lot of other errors (e.g wrong url),
       // and return null instead of error message. 
-      // RickAndMorty API returns an error message, if you try to find non-existent Character.
-      // So I decided to work with it:
+      // If I try to find non-existent character (or episode)
+      // RickAndMorty API returns an error message.
+      // So I decided to work with API error messages:
       if (data.error === 'Character not found') {
         return null
       }
@@ -44,7 +45,6 @@ class RickAndMorty {
         return null
       } 
       return data
-
     } catch (error) {
       return `Error: ${error}`
     }
