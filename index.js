@@ -337,7 +337,6 @@ class Car {
     if (this.#damage/100 * distance > this.#health) {
       throw new Error('Your car won\'t make it')
     }
-    
     this.#currentFuelVolume -= this.#fuelConsumption/100 * distance
     this.#health -= this.#damage/100 * distance 
     this.#mileage += distance
