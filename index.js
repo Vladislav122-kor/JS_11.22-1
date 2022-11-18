@@ -33,7 +33,8 @@ class Stack {
   }
   //constructor: I have a maxSize, storage, and top (number of elements in Stack)
   constructor (maxStackSize) {
-    if (maxStackSize && !Number.isFinite(maxStackSize) || maxStackSize < 0 || 
+    if (maxStackSize && !Number.isFinite(maxStackSize) ||
+    maxStackSize < 0 || 
     maxStackSize === null ||
     Object.is(NaN, maxStackSize)
     ) {
@@ -359,3 +360,17 @@ class Car {
     return this.#maxFuelVolume - this.#currentFuelVolume
   }
 }
+
+const ll = new LinkedList()
+ll.append('a')
+ll.append('b')
+ll.append('c')
+ll.append('d')
+ll.append('e')
+ll.prepend('prep')
+ll.prepend('prep2')
+ll.prepend('prep3')
+console.log(ll.toArray())
+
+const set = new Set([1,2,3,4,5])
+console.log(LinkedList.fromIterable(set))
