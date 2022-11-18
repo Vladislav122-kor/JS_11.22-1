@@ -13,7 +13,8 @@ class Stack {
     let newStack
     /* We need two ways of creating array from iterable. 
     One for Map and Set, and one for other iterables. 
-    Map iterator returns [key: value] arrays, so we push keys and values, instead of values only. And thats wrong.
+    Map iterator returns [key: value] arrays, so we push keys and values,
+    instead of values only. And thats wrong.
     Also, for seting maxStackSize we can't use length property for Map and Set. 
     We need to use size property.*/
     if (iterable instanceof Map || iterable instanceof Set) {
