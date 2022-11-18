@@ -51,7 +51,7 @@ class Stack {
   //delete element and subtract 1 from top
   pop() {
     if (this.#top === 0) {
-      throw new Error('Empty Stack')
+      throw new Error('Empty stack')
     }
     delete this.#stackStorage[this.#top]
     this.#top -= 1
