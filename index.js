@@ -33,7 +33,10 @@ class Stack {
   }
   //constructor: I have a maxSize, storage, and top (number of elements in Stack)
   constructor (maxStackSize) {
-    if (maxStackSize && !Number.isFinite(maxStackSize)) {
+    if (maxStackSize && !Number.isFinite(maxStackSize) || maxStackSize < 0 || 
+    maxStackSize === null ||
+    Object.is(NaN, maxStackSize)
+    ) {
       throw new Error('Invalid limit value')
     }
     this.#maxStackSize = maxStackSize ? maxStackSize : 10
