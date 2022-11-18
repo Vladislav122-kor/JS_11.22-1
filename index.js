@@ -1,16 +1,23 @@
+//JS stack implementation
 class Stack {
   //privats
   #maxStackSize
   #stackStorage
   #top
-
+  //static method
   static fromIterable(iterable) {
     if (!iterable || iterable === null || 
       typeof iterable[Symbol.iterator] !== 'function') {
       throw new Error('Not iterable')
     }
     let newStack
-    if ( iterable instanceof Map) {
+    /* We need two ways of creating array from iterable. 
+    One for Map and Set, and one for other iterables. 
+    Map iterator returns [key: value] objects, so we push keys and values, instead of values only. And thats wrong.
+    Also, for seting maxStackSize we can't use length property for Map and Set. 
+    We need to use size property. 
+    Also*/
+    if ( iterable instanceof Map || iterable instanceof Set) {
       newStack = new Stack(iterable.size)
       const values = [...iterable.values()];
       for (let v of values) {
@@ -24,7 +31,7 @@ class Stack {
     }
     return newStack
   }
-    
+  //constructor: I have a maxSize, storage, and top (number of elements in Stack)
   constructor (maxStackSize) {
     if (maxStackSize && !Number.isFinite(maxStackSize)) {
       throw new Error('Invalid limit value')
@@ -33,7 +40,7 @@ class Stack {
     this.#stackStorage = {}
     this.#top = 0
   } 
-
+  //push. Push elem and add 1 to top. Top is seted as a key in object storage
   push(elem) {
     if (this.#top === this.#maxStackSize) {
       throw new Error('Limit exceeded')
@@ -41,7 +48,7 @@ class Stack {
     this.#top += 1
     this.#stackStorage[this.#top] = elem
   }
-
+  //delete element and subtract 1 from top
   pop() {
     if (this.#top === 0) {
       throw new Error('Empty Stack')
@@ -49,19 +56,19 @@ class Stack {
     delete this.#stackStorage[this.#top]
     this.#top -= 1
   }
-
+  // peeking last element using #top as a key
   peek() {
     if (this.#top === 0) {
       return null
     }
     return this.#stackStorage[this.#top]
   }
-
+  //check if #top === 0
   isEmpty() {
     const storIsEmpty = this.#top === 0 ? true : false
     return storIsEmpty
   }
-
+  //use Object.values static method (return an array of values)
   toArray() {
     return Object.values(this.#stackStorage)
   }
@@ -70,14 +77,15 @@ class Stack {
 class LinkedList  {
   //privats
   #head
-
+  /*Same as Stack. But here we don't need to separate Set, becouse we don't
+  need size property. */
   static fromIterable(iterable) {
     if (!iterable || iterable === null || 
       typeof iterable[Symbol.iterator] !== 'function') {
       throw new Error('Not iterable')
     }
     let newLinkedList
-    if ( iterable instanceof Map) {
+    if (iterable instanceof Map) {
       newLinkedList = new LinkedList()
       const values = [...iterable.values()];
       for (let v of values) {
@@ -91,18 +99,19 @@ class LinkedList  {
     }
     return newLinkedList
   }
-
+  //seting #head property to constructor
   constructor() {
     this.#head = null
   }
-
+  //private method to find last element in linked list
   #findLast(elem) {
     if(elem.next === null) {
       return elem
     }
     return this.#findLast(elem.next)
   }
-
+  /* if first = put into #head. Else= looking for last element and put into 
+  last elements 'next' property */
   append(elem) {
     if(this.#head === null) {
       this.#head = {
@@ -117,7 +126,7 @@ class LinkedList  {
       }
     }
   }
-
+  /*   put element into #head. And #head into the new elements 'next property'*/
   prepend(elem) {
     const newElem = {
       value: elem,
@@ -126,7 +135,7 @@ class LinkedList  {
     newElem.next = this.#head
     this.#head = newElem
   }
-
+  /* Search element with recoursion */
   find(elem) {
     function valueCompare(linkedListElement) {
       if (!linkedListElement) {
@@ -139,7 +148,7 @@ class LinkedList  {
     }
     return valueCompare(this.#head)
   }
-
+  /* I love recursions:) And here we use it to push  values to array*/
   toArray() {
     const newArr = []
     function arrPush(elem) {
@@ -166,7 +175,7 @@ class Car {
   #isStarted
   #mileage
   #health 
-
+  //constructor with default properties
   constructor() {
     this.#brand = ''
     this.#model = ''
@@ -180,7 +189,7 @@ class Car {
     this.#mileage = 0
     this.#health = 100 
   }
-
+  //getters and setters 
   get brand() {
     return this.#brand
   }
@@ -276,21 +285,22 @@ class Car {
   get mileage() {
     return this.#mileage
   }
-
+  //methods
+  //starting the car
   start() {
     if (this.#isStarted === true) {
       throw new Error('Car has already started')
     }
     this.#isStarted = true
   }
-
+  //shut down engine
   shutDownEngine() {
     if (this.#isStarted === false) {
       throw new Error('Car hasn\'t started yet')
     }
     this.#isStarted = false
   }
-
+  //to tank your car. Check if car is started, and if you set a valid amount
   fillUpGasTank(liters) {
     if (!Number.isFinite(liters) || liters <= 0) {
       throw new Error('Invalid fuel amount')
@@ -303,7 +313,9 @@ class Car {
     }
     this.#currentFuelVolume += liters
   }
-
+  /*driving the car. I wrote some easy calculations, to count how much
+  fuel and health it will take for the ride. And subtrackt it from current health 
+  and fuelVolume. Also I add distance to mileage */
   drive(speed, hours) {
     const distance = speed * hours
 
@@ -330,7 +342,7 @@ class Car {
     this.#health -= this.#damage/100 * distance 
     this.#mileage += distance
   }
-
+  //check some condeitions and set health to max (100)
   repair() {
     if (this.#isStarted === true){
       throw new Error('You have to shut down your car first')
@@ -340,7 +352,7 @@ class Car {
     }
     this.#health = 100
   }
-
+  //return the difference between maxFuelVolume and currentFuelVolume
   getFullAmount() {
     return this.#maxFuelVolume - this.#currentFuelVolume
   }
