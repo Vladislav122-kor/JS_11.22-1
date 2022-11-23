@@ -66,7 +66,6 @@ function calculator(event) {
   if (target.innerText === ')') {
     return closedBracket()
   }
-
   //calculator functions
   //function to calculate current result (after user press equal sign)
   function calculation(args) {
