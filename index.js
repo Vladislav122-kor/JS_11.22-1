@@ -84,16 +84,22 @@ function calculator(event) {
     //function that calculates equatation
     let fun = new Function('return ' + calcArgs)
     //if more than 8 numbers after dot - cut to 8 signs
-    if(fun()%1 !== 0) {
+    if (fun() % 1 !== 0) {
+      let output = fun()
+      /**if you type smth like 0.0000000001 function returns 1e-14.
+       * So my function gets crushed. To prevent this I do one more check
+       */
+      if (output.toString().includes('e')) {
+        return output
+      }
       const decimalPart = fun().toString().split('.')[1]
       if (decimalPart.length > 8) {
-        let output = fun()
         output = output.toFixed(8)
         return output
       }
       return fun()
     }
-    //if number is to big we turn it to scientific notation(E.g 10e+5)
+    // if number is to big we turn it to scientific notation(E.g 10e+5)
     if (fun() > 999999999) {
       const output = fun()
       return output.toExponential()
