@@ -84,9 +84,14 @@ function calculator(event) {
     //function that calculates equatation
     let fun = new Function('return ' + calcArgs)
     //if more than 8 numbers after dot - cut to 8 signs
-    if ((fun() % 1).toString().slice(2).length > 8) {
-      const output = fun()
-      return output.toFixed(8)
+    if(fun()%1 !== 0) {
+      const decimalPart = fun().toString().split('.')[1]
+      if (decimalPart.length > 8) {
+        let output = fun()
+        output = output.toFixed(8)
+        return output
+      }
+      return fun()
     }
     //if number is to big we turn it to scientific notation(E.g 10e+5)
     if (fun() > 999999999) {
@@ -127,7 +132,6 @@ function calculator(event) {
     delete anything from curOp*/
     if(curString.slice(-1) === '(' || curString.slice(-1) === ')') {
       currentCalculation.innerText = curString.slice(0, -1)
-      console.log(curOp)
       return
     }
     //delete from ouput and from curOp(variable that stores current (last) operands)
@@ -168,7 +172,7 @@ function calculator(event) {
     }
     /* If number longer than 10 characters - I display only part of it and ask user
     to open console to see full answer */
-    if (calculation((curString)).length > 10) {
+    if (calculation((curString)).toString().length > 10) {
       let curLongResult = calculation(currentCalculation.innerText)
       currentResult.innerText = 'Too long. (Press F12)  '+ curLongResult.toString().slice(0, 4) + '...'
       console.log(curLongResult)
