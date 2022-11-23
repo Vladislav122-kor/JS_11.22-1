@@ -1,4 +1,4 @@
-// variables to store html tags
+// querying html elements
 const currentCalculation = document.querySelector('.current-operand')
 const currentResult = document.querySelector('.current-result')
 const calculatorButtons = document.querySelector('.calculator')
