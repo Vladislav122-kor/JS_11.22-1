@@ -11,8 +11,6 @@ let curOp = ''
 input field are result or current equatation. For examople, if you type any number after 
 the result it should remove result and start adding numbers from scratch*/
 let isResult = false
-
-
 //add listener to calc field 
 calculatorButtons.addEventListener('click', function(event) {
   return calculator(event)
