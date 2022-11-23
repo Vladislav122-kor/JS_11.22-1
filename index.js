@@ -401,4 +401,3 @@ function calculator(event) {
     return
   }
 }
-
