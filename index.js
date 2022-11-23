@@ -143,6 +143,18 @@ function calculator(event) {
       isResult = false
       return
     }
+    if(curOp === '.') {
+      isResult = false
+      currentResult.innerText = 'DOT what?'
+      return
+    }
+     /*If some open brackets are left, calculator cannot count the result. I send
+    to user number of open brackets he needs to enclose */
+    if(calculation(curString).error) {
+      isResult = false
+      currentResult.innerText = `You have ${calculation(currentCalculation.innerText).brackNum} open brackets`
+      return
+    } 
     // If user wants to divide by zero
     if (!isFinite(calculation(curString))) {
       isResult = false
@@ -162,12 +174,7 @@ function calculator(event) {
       console.log(curLongResult)
       return
     }
-    /*If some open brackets are left, calculator cannot count the result. I send
-    to user number of open brackets he needs to enclose */
-    if(calculation(curString).error) {
-      currentResult.innerText = `You have ${calculation(currentCalculation.innerText).brackNum} open brackets`
-      return
-    } 
+   
     /**If everething is ok - calculate the result and display it */
     else {
       currentCalculation.innerText = calculation(currentCalculation.innerText)
