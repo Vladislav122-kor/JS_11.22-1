@@ -159,22 +159,22 @@ function calculator(event) {
       currentResult.innerText = 'DOT what?'
       return
     }
-     /*If some open brackets are left, calculator cannot count the result. I send
-    to user number of open brackets he needs to enclose */
+    //if last symbol is operator (e.g '+' sign) we cannot calculate the result.
+    if (opArray.includes(curString.slice(-1))) {
+      isResult = false
+      return
+    }
+    //  /*If some open brackets are left, calculator cannot count the result. I send
+    // to user number of open brackets he needs to enclose */
     if(calculation(curString).error) {
       isResult = false
       currentResult.innerText = `You have ${calculation(currentCalculation.innerText).brackNum} open brackets`
       return
     } 
-    // If user wants to divide by zero
+    // // If user wants to divide by zero
     if (!isFinite(calculation(curString))) {
       isResult = false
       currentResult.innerText = 'Error'
-      return
-    }
-    //if last symbol is operator (e.g '+' sign) we cannot calculate the result.
-    if (opArray.includes(curString.slice(-1))) {
-      isResult = false
       return
     }
     /* If number longer than 10 characters - I display only part of it and ask user
