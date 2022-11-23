@@ -183,7 +183,6 @@ function calculator(event) {
       let curLongResult = calculation(currentCalculation.innerText)
       currentCalculation.innerText = ''
       currentResult.innerText = curLongResult
-      console.log(curLongResult)
       return
     }
     /**If everething is ok - calculate the result and display it */
