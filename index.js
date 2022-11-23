@@ -181,11 +181,11 @@ function calculator(event) {
     to open console to see full answer */
     if (calculation((curString)).toString().length > 10) {
       let curLongResult = calculation(currentCalculation.innerText)
-      currentResult.innerText = 'Too long. (Press F12)  '+ curLongResult.toString().slice(0, 4) + '...'
+      currentCalculation.innerText = ''
+      currentResult.innerText = curLongResult
       console.log(curLongResult)
       return
     }
-   
     /**If everething is ok - calculate the result and display it */
     else {
       currentCalculation.innerText = calculation(currentCalculation.innerText)
