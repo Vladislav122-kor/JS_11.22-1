@@ -391,6 +391,10 @@ function calculator(event) {
       currentResult.innerText = 'You cannot type this here'
       return
     }
+    if(curString.endsWith(')')) {
+      currentResult.innerText = 'You cannot type this here'
+      return
+    }
     currentCalculation.innerText += target.innerText
     return
   }
