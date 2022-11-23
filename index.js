@@ -204,7 +204,7 @@ function calculator(event) {
     isResult = false
     //cannot enter numbers after closed bracket
     if (curString.endsWith(')')) {
-      currentResult.innerText = 'Please type operand first'
+      currentResult.innerText = 'Please type operator first'
       return
     }
     /**If we enter zero as a first number, we cannot enter more than one sign.
