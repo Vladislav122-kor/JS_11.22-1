@@ -331,6 +331,13 @@ function calculator(event) {
       currentResult.innerText = 'You cannot type it here'
       return
     }
+    /**If you delete numbers after negtive sign and want to change it with 
+     * operator. That's not valid operation, so I also checked it.
+     */
+    if (curString.slice(-2) === '(-') {
+      currentResult.innerText = 'You cannot type it here'
+      return
+    }
     //clear curOp variable
     curOp = ''
     //if last sign is operator = replace it with new user pressed operator
