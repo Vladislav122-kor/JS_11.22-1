@@ -19,6 +19,7 @@ calculatorButtons.addEventListener('click', function(event) {
 function calculator(event) {
   //event delegation
   const target= event.target.closest('button')
+
   //current string in input
   let curString = currentCalculation.innerText
   //array with operator signs
@@ -86,7 +87,7 @@ function calculator(event) {
     //if more than 8 numbers after dot - cut to 8 signs
     if (fun() % 1 !== 0) {
       let output = fun()
-      /**if you type smth like 0.0000000001 function returns 1e-14.
+      /**if you type smth like 0.0000000001 function returns '1e-14'.
        * So my function gets crushed. To prevent this I do one more check
        */
       if (output.toString().includes('e')) {
