@@ -19,7 +19,6 @@ calculatorButtons.addEventListener('click', function(event) {
 function calculator(event) {
   //event delegation
   const target= event.target.closest('button')
-
   //current string in input
   let curString = currentCalculation.innerText
   //array with operator signs
@@ -68,14 +67,14 @@ function calculator(event) {
     return closedBracket()
   }
   //calculator functions
-  //function to calculate current result (after user press equal sign)
+  //function to calculate current result (after user press equal sign or operator button)
   function calculation(args) {
     let calcArgs = args
     openBracks = 0
     closedBracks = 0
     //function to calculate the number of brackets
     calcBrackets(calcArgs)
-    /*if number not equals zero, calculation() function returns error object
+    /*if number of brackets not equals zero, calculation() function returns error object
     with the difference between open and closed brackets. I display this number
     and user knows how many brackets he should close to calculate the result
     properly*/
@@ -134,6 +133,7 @@ function calculator(event) {
   }
   //function to delete last character
   function del() {
+    isResult = false
     /*I don't add brackets to curOp (variable that stores current operands), 
     so if I delete bracket I delete them only from output, and I don't need to 
     delete anything from curOp*/
@@ -236,7 +236,6 @@ function calculator(event) {
       curOp += target.innerText
       return
     }
-
   }
   //function that changes number sign
   function signChange() {
