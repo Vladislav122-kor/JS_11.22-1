@@ -322,7 +322,6 @@ function calculator(event) {
       currentCalculation.innerText = curString.slice(0, -1) + target.dataset.operator
       return
     } 
-
     else {
       /**if some open brackets are not closed - return message 
        * witn nuumber of open brackets instead of result. 
