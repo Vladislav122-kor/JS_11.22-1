@@ -324,7 +324,7 @@ function calculator(event) {
     } 
     else {
       /**if some open brackets are not closed - return message 
-       * witn nuumber of open brackets instead of result. 
+       * with nuumber of open brackets instead of result. 
        * If everetthing is ok = display result in 'current result' output
       */
       currentCalculation.innerText += target.dataset.operator
