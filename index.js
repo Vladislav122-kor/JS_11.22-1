@@ -179,12 +179,14 @@ function calculator(event) {
     }
     /* If number longer than 10 characters - I display only part of it and ask user
     to open console to see full answer */
-    if (calculation((curString)).toString().length > 10) {
+    if (calculation((curString)).toString().length > 12) {
       let curLongResult = calculation(currentCalculation.innerText)
-      currentCalculation.innerText = ''
-      currentResult.innerText = curLongResult
+      currentCalculation.innerText = curLongResult
+      currentResult.innerText = 'Too long. (Press F12)  '+ curLongResult.toString().slice(0, 4) + '...'
+      console.log(curLongResult)
       return
     }
+   
     /**If everething is ok - calculate the result and display it */
     else {
       currentCalculation.innerText = calculation(currentCalculation.innerText)
