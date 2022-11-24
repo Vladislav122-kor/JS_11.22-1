@@ -177,7 +177,7 @@ function calculator(event) {
       currentResult.innerText = 'Error'
       return
     }
-    /* If number longer than 10 characters - I display only part of it and ask user
+    /* If number longer than 12 characters - I display only part of it and ask user
     to open console to see full answer */
     if (calculation((curString)).toString().length > 12) {
       let curLongResult = calculation(currentCalculation.innerText)
